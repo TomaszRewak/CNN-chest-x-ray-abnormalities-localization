@@ -2,9 +2,6 @@ import tensorflow as tf
 
 
 def get_vgg_model(model_path):
-
-    # download from https://s3.amazonaws.com/cadl/models/vgg16.tfmodel
-
     with open(model_path, mode='rb') as f:
         graph_def = tf.GraphDef()
         try:
