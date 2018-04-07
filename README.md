@@ -1,5 +1,5 @@
 # CNN-chest-x-ray-abnormalities-localization
-Using convolutional neural network, transfer learingn and deep neural network attribution methods to localize abnormalities on x-ray chest images.
+Using a convolutional neural network, transfer learingn and deep neural network attribution methods to localize abnormalities on x-ray chest images.
 
 ![Example](https://raw.githubusercontent.com/TomaszRewak/CNN-chest-x-ray-abnormalities-localization/master/docs/detection.png)
 
