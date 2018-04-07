@@ -3,17 +3,17 @@ Using convolutional neural network, transfer learingn and deep neural network at
 
 ![Example](https://raw.githubusercontent.com/TomaszRewak/CNN-chest-x-ray-abnormalities-localization/master/docs/detection.png)
 
-# Project status
+## Project status
 
 The project is right now in its initial stage. It still requires some fine tuning. I've managed just to put all the pieces together for it to work.
 
-# Acknowledgement
+## Acknowledgement
 
 Special thanks are due to:
 - Ayush Singh (@ayush1997). After making some small changes, I've reused his scrapper to download x-ray images from the openi.nlm.nih.gov website (https://github.com/ayush1997/Xvision). My project is also inspired by the way Ayush uses the VGG16 CNN to classify x-ray images.
 - Marco Ancona (@marcoancona) for his amazing library called DeepExplain (https://github.com/marcoancona/DeepExplain). It provides (used in this project) attribution methods for Deep Learning that are compatible with tensorflow.
 
-# Classifier
+## Classifier
 
 The VGG16 is a base of the classification model used to distinguish between normal and abnormal x-ray images. It has been stripped of all fully connected layers. These layers have been replaced with new ones, trained with a transfer learning techniques.
 
@@ -23,15 +23,15 @@ The VGG16 is a base of the classification model used to distinguish between norm
 | Abnormal | 0.77 | 0.79 | 0.78 | 488 |
 | avg/total | 0.71 | 0.71 | 0.71 | 747 |
 
-# Attribution
+## Attribution
 
 Abnormalities are located using DeepLIFT attribution method.
 
-# Usage
+## Usage
 
 To run whole process you have to follow these steps. (You might have to create ```data``` and ```data/model``` paths manually)
 
-1. Download VGG16 model.
+### 1. Download VGG16 model.
 ```
   python scraper/download_model.py <vgg_path>
 ```
@@ -40,7 +40,7 @@ e.g.
   python scraper/download_model.py data/vgg16.tfmodel
 ```
 
-2. Download x-ray images and their descriptions.
+### 2. Download x-ray images and their descriptions.
 
 ```
   python scraper/scraper.py <path>
@@ -50,7 +50,7 @@ e.g.
   python scraper/scraper.py data
 ```
 
-3. Extract final convolution layer features.
+### 3. Extract final convolution layer features.
 ```
   python learning/transfer_feature_extraction.py <images> <features> <vgg_path>
 ```
@@ -60,7 +60,7 @@ e.g.
 ```
 In this step vgg16 network is split and only convolution layers are used.
 
-4. Prepare training and testing examples.
+### 4. Prepare training and testing examples.
 ```
   python learning/learning_examples_preparing.py <descriptions> <features> <training_set> <testing_set> <examples_list>
 ```
@@ -71,7 +71,7 @@ e.g.
 
 It produces training and testing examples used in the training process.
 
-5. Train fully connected layers.
+### 5. Train fully connected layers.
 ```
   python learning/fully_connected_layers_training.py <training_set> <testing_set> <model>
 ```
@@ -82,7 +82,7 @@ e.g.
 
 Features that have been previously extracted from convolutional layers are now used to train fully connected layers.
 
-6. Visualize.
+### 6. Visualize.
 ```
   python learning/visualization.py <vgg_path> <model> <examples_list> <images> <results>
 ```
