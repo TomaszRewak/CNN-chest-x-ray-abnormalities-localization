@@ -29,7 +29,7 @@ Abnormalities are located using DeepLIFT attribution method.
 
 ## Usage
 
-To run whole process you have to follow these steps. (You might have to create ```data``` and ```data/model``` paths manually)
+To run the whole process you have to follow these steps. (You might have to create ```data``` and ```data/model``` paths manually)
 
 ### 1. Download VGG16 model.
 ```
