@@ -84,11 +84,11 @@ Features that have been previously extracted from convolutional layers are now u
 
 ### 6. Visualize.
 ```
-  python learning/visualization.py <vgg_path> <model> <examples_list> <images> <results>
+  python learning/visualization.py <vgg_path> <model> <examples_list> <images> <results> <attribution_method>
 ```
 e.g.
 ```
-  python learning/visualization.py data/vgg16.tfmodel data/model/model.ckpt data/examples.json data/images data/results
+  python learning/visualization.py data/vgg16.tfmodel data/model/model.ckpt data/examples.json data/images data/results deeplift
 ```
 
 Examples on ```<examples_list>``` are now passed through VGG16 CNN connected with our fully connected layers. DeepLIFT attribution method is then used to localize abnormalities. Results are sroted in ```<results>``` directory. Names of output files contain information about prediction ```[normal probability, abnormal probability]```.
